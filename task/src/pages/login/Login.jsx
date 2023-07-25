@@ -1,7 +1,30 @@
-import { Link } from "react-router-dom";
 import "./login.scss";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+export default function Login({ onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-export default function Login() {
+  const handleLogin = async () => {
+    try {
+      if (email && password) {
+        const loginSuccessful = true;
+
+        if (loginSuccessful) {
+          onLogin();
+          navigate("/");
+        } else {
+          alert("Incorrect email or password....");
+        }
+      } else {
+        alert("Please enter both email and password.");
+      }
+    } catch (error) {
+      alert("Error:", error);
+    }
+  };
+
   return (
     <div className="login">
       <div className="card">
@@ -20,9 +43,21 @@ export default function Login() {
         <div className="right">
           <h1>Login</h1>
           <form>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <button>Login</button>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="button" onClick={handleLogin}>
+              Login
+            </button>
           </form>
         </div>
       </div>

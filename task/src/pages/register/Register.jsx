@@ -1,7 +1,31 @@
-import { Link } from "react-router-dom";
 import "./register.scss";
 
-export default function Register() {
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+export default function Register({ onRegister }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleRegister = async () => {
+    try {
+      if (email && password) {
+        const registerSuccessful = true;
+
+        if (registerSuccessful) {
+          onRegister();
+          navigate("/");
+        } else {
+          alert("Error...");
+        }
+      } else {
+        alert("Please enter both email and password.");
+      }
+    } catch (error) {
+      alert("Error", error);
+    }
+  };
+
   return (
     <div className="register">
       <div className="card">
@@ -20,11 +44,21 @@ export default function Register() {
         <div className="right">
           <h1>Register</h1>
           <form>
-            <input type="text" placeholder="Username" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <input type="text" placeholder="Name" />
-            <button>Register</button>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="button" onClick={handleRegister}>
+              Register
+            </button>
           </form>
         </div>
       </div>
