@@ -1,0 +1,66 @@
+.folder {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 10px;
+  background: #cebd8838;
+
+  .folderName {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .fileInputLabel {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    .uploadBtn {
+      width: 100%;
+      position: relative;
+
+      .flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        border-radius: 5px;
+
+        .uploadIcon {
+          color: #eb9b2c;
+          font-size: 40px;
+        }
+
+        input[type="file"] {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          visibility: hidden;
+          cursor: pointer;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .uploadedFiles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .uploadedFile {
+      p {
+        width: 100%;
+        background: #eae3cd;
+        border: none;
+        padding: 20px 10px;
+        text-align: start;
+        font-size: 16px;
+        line-height: 20px;
+        color: #555555;
+      }
+    }
+  }
+}

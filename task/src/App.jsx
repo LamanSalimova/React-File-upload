@@ -11,7 +11,11 @@ import Register from "./pages/register/Register";
 
 function App() {
   const Layout = () => {
-    return <div>Layout is here-Navbar,Footer etc.</div>;
+    return (
+      <div>
+        <Home />
+      </div>
+    );
   };
 
   const [currentUser, setCurrentUser] = useState(false);

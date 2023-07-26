@@ -1,0 +1,12 @@
+.home {
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .foldersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
