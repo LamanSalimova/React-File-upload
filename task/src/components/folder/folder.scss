@@ -4,7 +4,8 @@
   margin: 15px;
   padding: 10px;
   background: #cebd8838;
-
+  width: 75%;
+  margin: 0 auto;
   .folderName {
     font-weight: bold;
     margin-bottom: 10px;
@@ -51,15 +52,37 @@
     gap: 20px;
 
     .uploadedFile {
+      display: flex;
+      align-items: center;
+      background: #eae3cd;
+
       p {
         width: 100%;
-        background: #eae3cd;
         border: none;
         padding: 20px 10px;
         text-align: start;
         font-size: 16px;
         line-height: 20px;
         color: #555555;
+      }
+
+      .deleteBtn {
+        display: flex;
+        column-gap: 5px;
+        align-items: center;
+        justify-content: center;
+        background-color: #da1d1d;
+        color: #fff;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 20px;
+        height: 100%;
+
+        .deleteIcon {
+          font-size: 22px;
+        }
       }
     }
   }

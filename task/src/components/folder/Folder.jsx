@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./folder.scss";
 import { BsCloudDownloadFill } from "react-icons/bs";
+import { MdDelete } from "react-icons/md";
 
 export default function Folder({ name }) {
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -8,6 +9,10 @@ export default function Folder({ name }) {
   const handleFilesChange = (e) => {
     const files = e.target.files;
     setUploadedFiles([...uploadedFiles, ...files]);
+  };
+
+  const handleDeleteFile = (fileName) => {
+    setUploadedFiles(uploadedFiles.filter((file) => file.name !== fileName));
   };
 
   return (
@@ -28,6 +33,13 @@ export default function Folder({ name }) {
           {uploadedFiles.map((file, i) => (
             <div key={i} className="uploadedFile">
               <p>{file.name}</p>
+              <button
+                className="deleteBtn"
+                onClick={() => handleDeleteFile(file.name)}
+              >
+                Delete
+                <MdDelete className="deleteIcon" />
+              </button>
             </div>
           ))}
         </div>

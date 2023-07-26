@@ -1,12 +1,12 @@
 .home {
   h1 {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
   }
 
   .foldersContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
   }
 }
